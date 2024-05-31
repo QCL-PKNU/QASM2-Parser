@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "qasm2",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/test_qasm2",
+            "args": ["${workspaceFolder}/test/circuits/adder_n4_cus.qasm"],
+            "cwd": "${workspaceFolder}",
+            
+            "preLaunchTask": "build qasm",
+        }
+    ]
+}

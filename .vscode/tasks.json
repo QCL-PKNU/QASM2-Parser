@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build qasm",
+            "type": "shell",
+            "command": "ninja -C ${workspaceFolder}/build test_qasm2",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
