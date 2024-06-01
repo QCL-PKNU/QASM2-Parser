@@ -29,11 +29,9 @@ The parser translates QASM2 code into an Abstract Syntax Tree (AST) for further 
     ```
 3. Build the project:
     ```sh
-    make; make
+    make
     ```
-
-    *Note: Need to run `make` 2 times (will fix later)*
-
+    
 4. Run the Parser:
     ```sh
     ./run_qasm2 <path-to-qasm-file>
@@ -56,7 +54,6 @@ The parser translates QASM2 code into an Abstract Syntax Tree (AST) for further 
 │   ├── QASM2Lexer.g4             # ANTLR4 grammar for QASM2 lexer
 │   └── QASM2Parser.g4            # ANTLR4 grammar for QASM2 parser
 ├── main.cpp                      # Main entry point for the QASM2 parser
-├── qelib1.inc                    # QASM standard library
 ├── README.md                     # Project documentation
 ├── src
 │   ├── include
