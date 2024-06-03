@@ -102,8 +102,8 @@ Example of link library with QPlayer
 2. Build with simulator
     ```sh
     cd ../build
-    cmake .. -DBUILD_QPLAYER=OFF 
-    make; make;
+    cmake .. -DBUILD_QPLAYER=ON 
+    make;
     ```
 
 For more details on link the library to used in here, check in CMakeLists.txt
