@@ -71,7 +71,7 @@ The parser translates QASM2 code into an Abstract Syntax Tree (AST) for further 
 └── thirdparty
     ├── antlr
     │   └── antlr-4.7-complete.jar # ANTLR4 tool
-    └── player                    # QPlayer integration
+    └── qplayer                    # QPlayer integration
 ```
 
 ## AST usage
