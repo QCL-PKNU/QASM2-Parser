@@ -6,7 +6,7 @@
 #include "Visitor.h"
 #include "AST.h"
 
-// #include "qplayer.h"
+#include "qplayer.h"
 
 using namespace std;
 using namespace qasmcpp;
@@ -16,8 +16,8 @@ int main(int argc, const char* argv[]) {
 
 
     // This is a test if QPlayer works
-    // QRegister QReg = new QRegister(12);
-    // cout << "QReg: " << QReg.getNumQubits() << endl;
+    QRegister QReg = new QRegister(12);
+    cout << "QReg: " << QReg.getNumQubits() << endl;
 
     if (argc != 2) {
         std::cerr << "Usage: " << argv[0] << " <path-to-qasm>" << std::endl;

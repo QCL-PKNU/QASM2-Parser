@@ -27,6 +27,7 @@ The parser translates QASM2 code into an Abstract Syntax Tree (AST) for further 
     cd build
     cmake ..
     ```
+    *Highly recommend using Ninja Build for compilation speed up*
 3. Build the project:
     ```sh
     make
@@ -92,25 +93,53 @@ While traverse the parse tree, it performs semantic analysis to generate Symbol 
 ```
 
 ## Example of link with simulator
-We will support simulator as backend to execute circuit.
+We will support simulator as backend to execute circuit. This shows how QPlayer built with our parser.
+
 Example of link library with QPlayer
 1. Clone simulator
     ```sh
     cd ./thirdparty
     git clone https://github.com/eQuantumOS/QPlayer.git qplayer
     ```
-2. Build with simulator
+2. Include the qplayer in `main.cpp`
+    ```cpp
+    #include <antlr4-runtime.h>
+    #include "QASM2Parser.h"
+    #include "QASM2Lexer.h"
+    #include "Visitor.h"
+    #include "AST.h"
+
+    #include "qplayer.h"
+    . . .
+    int main(int argc, const char* argv[]) {
+
+        // Create one of QRegister from QPlayer
+        QRegister QReg = new QRegister(12);
+        cout << "QReg: " << QReg.getNumQubits() << endl;
+        . . . 
+    }
+    ```
+3. Build with QPlayer
     ```sh
     cd ../build
     cmake .. -DBUILD_QPLAYER=ON 
     make;
     ```
+4. Run the Parser
+    ```sh
+    ./run_qasm2 ../test/circuits/adder_n4_cus.qasm
+    ```
+    expected result
+    ```console
+    QReg: 12
+    ...
+    ```
 
 For more details on link the library to used in here, check in CMakeLists.txt
 
 
-## File Content Generation
-The `gen_files.sh` script can be used to generate `file_contents.txt`, which lists all the files in the project directory, excluding certain directories and file types. It is for asking ChatGPT as you wish. :)
+<!-- ## File Content Generation
+The `gen_files.sh` script can be used to generate `file_contents.txt`, which lists all the files in the project directory, excluding certain directories and file types. It is for asking ChatGPT as you wish. :) -->
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
